@@ -1,18 +1,21 @@
 salary = float(input("Enter salary: "))
 rate = 0.0
 
-if salary < 300000:
-    rate = 0.0
-elif salary > 300000 and salary <= 600000:
-    rate = 6.0
-elif salary > 600000 and salary <= 900000:
-    rate = 10.0
-elif salary > 900000 and salary <= 1200000:
-    rate = 15.0
-elif salary > 1200000 and salary <= 1500000:
-    rate = 20.0
+if salary < 0:
+    print("Invalid salary")
 else:
-    rate = 30.0
+    tax =0
+    if salary <= 300000:
+        tax = 0
+    elif salary <= 700000:
+        tax = (salary - 300000) * 0.05
+    elif salary <= 1000000:
+        tax = (400000 * 0.05) + (salary - 700000) * 0.1
+    elif salary <= 1200000:
+        tax = (400000 * 0.05) + (300000 * 0.1) + (salary - 1000000) * 0.15   
+    elif salary <= 1500000:
+        tax = (400000 * 0.05) + (300000 * 0.1) + (200000 * 0.15) + (salary - 1200000) * 0.2   
+    else:
+        tax = (400000 * 0.05) + (300000 * 0.1) + (200000 * 0.15) + (300000 * 0.2) + (salary - 1500000) * 0.3
 
-tax = salary * rate / 100
-print("Income tax amount: ", tax)
+print("Total tax amount: ", tax)
